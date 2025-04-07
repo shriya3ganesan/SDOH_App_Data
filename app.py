@@ -11,6 +11,7 @@ import dash
 from dash import dcc, html, Input, Output
 import json
 import requests
+import os
 
 # Load data
 SDOH_2010 = pd.read_csv('SDOH_2010_Final.csv')
@@ -314,4 +315,5 @@ def compute_category_weights_per_county(df, dataset):
 
 # --- Run App ---
 if __name__ == "__main__":
-    app.run(debug=True, port=8060)
+    port = int(os.environ.get("PORT", 8060))  # Render sets PORT env variable
+    app.run(debug=True, host="0.0.0.0", port=port)
