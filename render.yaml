@@ -1,7 +1,10 @@
-services
-  - type web
-    name texas-health-dashboard
-    env python
-    buildCommand pip install -r requirements.txt
-    startCommand python app.py
-    plan free
+services:
+  - type: web
+    name: texas-health-dashboard
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: PORT
+        value: 10000  # Not required unless you want a fixed dev value

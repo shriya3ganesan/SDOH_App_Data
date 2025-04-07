@@ -314,5 +314,4 @@ def compute_category_weights_per_county(df, dataset):
 
 # --- Run App ---
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8060))  # fallback for local dev
-    app.run(debug=False, host="0.0.0.0", port=port)
+    app.run(debug=True, port=8060)
